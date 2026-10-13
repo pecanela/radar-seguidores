@@ -1,0 +1,15 @@
+{
+  "name": "radar-seguidores",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Extensao de codigo aberto para visualizar a reciprocidade de seguidores no Instagram",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.cjs",
+    "check": "npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

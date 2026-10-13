@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Radar Seguidores — Instagram",
+  "short_name": "Radar Seguidores",
+  "version": "1.1.0",
+  "description": "Analise reciprocidade de seguidores e historico de unfollow no Instagram. Unfollow individual com confirmacao. Dados locais, sem anuncios.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "logic.js",
+        "main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "radar-seguidores-firefox@local.invalid",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "120.0"
+    }
+  }
+}

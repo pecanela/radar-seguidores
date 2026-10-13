@@ -1,113 +1,170 @@
-<p align="center">
-  <img src="docs/images/banner.png" alt="Radar Seguidores, free and open-source Instagram follower analysis browser extension" width="100%">
-</p>
+<p align="center"><img src="docs/images/banner.png" alt="Radar Seguidores — Instagram followers analysis dashboard" width="100%"></p>
+
+<h1 align="center">Radar Seguidores</h1>
+<p align="center"><strong>Find who doesn't follow you back. Track lost followers. Review your following list.</strong></p>
+<p align="center">A free, open-source browser extension that analyzes your Instagram followers directly in your browser.</p>
 
 <p align="center">
-  <a href="README.md">🇧🇷 Português</a> · <a href="#english">🇺🇸 English</a> ·
-  <a href="https://github.com/pecanela/radar-seguidores/actions">Builds</a> ·
-  <a href="LICENSE">MIT License</a>
+  <a href="https://github.com/pecanela/radar-seguidores/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/pecanela/radar-seguidores/actions/workflows/ci.yml/badge.svg?branch=main"></a>
+  <a href="https://github.com/pecanela/radar-seguidores/releases"><img alt="Beta" src="https://img.shields.io/badge/release-v1.1.0--beta.1-2363eb"></a>
+  <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/license-MIT-16a34a"></a>
+  <a href="#compatibility"><img alt="Firefox + Chromium" src="https://img.shields.io/badge/browsers-Firefox%20%7C%20Chromium-64748b"></a>
 </p>
+<p align="center">
+  <a href="https://github.com/pecanela/radar-seguidores/releases"><b>⬇️ Downloads</b></a> ·
+  <a href="#installation"><b>🚀 Installation</b></a> ·
+  <a href="#screenshots"><b>🖼️ Screenshots</b></a> ·
+  <a href="#frequently-asked-questions"><b>❓ FAQ</b></a>
+</p>
+<p align="center"><a href="README.md">🇧🇷 Português</a> · 🇺🇸 <b>English</b></p>
 
-<p align="center"><strong>Free · Open source · No ads · Local history · Firefox + Chromium</strong></p>
+> [!IMPORTANT]
+> **Desktop beta.** An earlier version was tested on desktop Firefox, but this updated release and the Chromium builds still require real-account validation. GitHub Release downloads are test packages, not store-signed extensions. There is no Android APK available.
 
-> **Version:** `v1.1.0-rc` (release candidate). A previous version has been validated on Firefox desktop. This version still needs real-account validation and cross-browser testing. **There is no signed extension, store release or validated Android APK yet.**
+---
 
-<a id="english"></a>
+## Why Radar Seguidores?
 
-## What is Radar Seguidores?
+When you follow hundreds or thousands of accounts, it can be difficult to see who doesn't follow you back or which accounts stopped following you since the last check. Radar Seguidores groups those relationships into three searchable lists.
 
-**Radar Seguidores** is a community-made, unaffiliated browser extension that compares accounts you follow with accounts following you on Instagram. It uses your existing logged-in Instagram browser session instead of asking you to enter your password in a separate service. **The UI is currently in Portuguese**; documentation is available in [Portuguese](README.md) and English.
+| Not following back | Unfollowed you | Followers you don't follow |
+|:---|:---|:---|
+| You **follow them**, but they don't follow you. | They **followed you previously**, no longer do, and you still follow them. | They **follow you**, but you don't follow them. |
+| Available after your first scan. | Requires two complete scans on different occasions. | Available after your first scan. |
 
-## Features
-
-| Feature | Description |
-|---|---|
-| **Não me seguem / Not following back** | Accounts you follow that do not follow you back. |
-| **Pararam de seguir / Unfollowed you** | Accounts that followed you in a previous full scan, no longer follow you, and that you still follow. |
-| **Me seguem, não sigo / Fans** | Accounts following you that you do not follow back. |
-| **Individual unfollow** | One confirmed action per person; no bulk unfollow. |
-| **Local history** | Matches accounts by account ID, saves scan history locally and allows you to delete it. |
-| **Search** | Filter by name or username. |
-
-> **Historical limitation:** the first scan cannot identify people who unfollowed you *before* it was made. To confirm lost followers you need at least two complete scans at different times.
+**Also includes:** username/name search, profile links, individually confirmed **Unfollow** actions, per-account local scan history and a delete-history option.
 
 ## Screenshots
 
 <p align="center">
-  <img src="docs/images/nao-me-seguem.png" alt="Actual extension UI showing accounts not following you back" width="86%">
-  <br><sub>Not following back</sub>
+  <a href="docs/images/nao-me-seguem.png"><img src="docs/images/nao-me-seguem.png" alt="Not following back screen" width="88%"></a>
+  <br><sub>Accounts you follow that don't follow you back.</sub>
 </p>
 
-<p align="center">
-  <img src="docs/images/pararam-de-seguir.png" alt="Actual extension UI showing accounts lost between scans" width="48%">
-  <img src="docs/images/me-seguem-nao-sigo.png" alt="Actual extension UI showing followers you do not follow" width="48%">
-  <br><sub>Unfollowed you · Followers you don't follow</sub>
-</p>
+<table>
+  <tr>
+    <td width="50%" align="center"><a href="docs/images/pararam-de-seguir.png"><img src="docs/images/pararam-de-seguir.png" alt="Previously followed you screen"></a><br><sub><b>Unfollowed you</b> — historical comparison</sub></td>
+    <td width="50%" align="center"><a href="docs/images/me-seguem-nao-sigo.png"><img src="docs/images/me-seguem-nao-sigo.png" alt="Followers you don't follow screen"></a><br><sub><b>Followers you don't follow</b> — one-way relationships</sub></td>
+  </tr>
+</table>
 
-*These are screenshots of the **real v1.1 UI** rendered against **synthetic test account data**. No real user's Instagram data appears in these images. The header banner is promotional artwork.*
+<sub>Actual extension interface running with synthetic demonstration accounts. No real Instagram accounts were exposed.</sub>
 
-## Installing a test build
+## Installation
 
-Build artifacts are generated on [GitHub Actions](https://github.com/pecanela/radar-seguidores/actions); the extension is not currently listed in any browser store. Open a successful workflow run and download the appropriate ZIP under **Artifacts** (GitHub sign-in may be required). Extract the ZIP first.
+### 1. Download the appropriate browser package
 
-### 🦊 Firefox desktop
+Go to **[Releases](https://github.com/pecanela/radar-seguidores/releases)** and find `v1.1.0-beta.1`:
 
-1. Download `radar-seguidores-firefox-unsigned` from the most recent successful [Actions](https://github.com/pecanela/radar-seguidores/actions) run and extract it.
-2. In Firefox open `about:debugging#/runtime/this-firefox`.
-3. Click **Load Temporary Add-on**, and choose **`manifest.json`** in the extracted folder.
-4. Visit [instagram.com](https://www.instagram.com/), sign in and reload the page.
-5. Click **◎ Radar Seguidores** at the bottom right → **Analisar agora** (Scan now).
+| Browser | File |
+|---|---|
+| 🦊 Firefox (desktop) | `Radar-Seguidores-Firefox-v1.1.0-beta.1.zip` |
+| 🌐 Chrome, Edge, Brave (desktop) | `Radar-Seguidores-Chromium-v1.1.0-beta.1.zip` |
 
-⚠️ Temporary extensions disappear after Firefox restarts. Permanent installation requires Mozilla signing.
+**Extract the ZIP.** The extracted folder should contain `manifest.json`, `main.js` and `logic.js` at its root.
 
-### 🌐 Chrome, Edge, Brave desktop
+### 2A. Firefox — Windows, macOS or Linux
 
-1. Download `radar-seguidores-chromium` from the most recent successful [Actions](https://github.com/pecanela/radar-seguidores/actions) run and extract it.
-2. Navigate to `chrome://extensions`, `edge://extensions` or `brave://extensions`.
-3. Enable **Developer mode** → **Load unpacked** → select the extracted folder containing `manifest.json`.
-4. Visit [instagram.com](https://www.instagram.com/), sign in, refresh and open **◎ Radar Seguidores**.
+1. Open `about:debugging#/runtime/this-firefox` in Firefox.
+2. Select **Load Temporary Add-on**.
+3. Select the **`manifest.json`** file in the extracted folder.
+4. Visit **[instagram.com](https://www.instagram.com/)**, sign in and refresh the page.
+5. Click **◎ Radar Seguidores** in the bottom-right corner and select **Analisar agora** (Scan now).
 
-### 📱 Android
+> [!NOTE]
+> In regular Firefox, this installation is **temporary** and is removed on restart. Permanent installation requires Mozilla signing and is not yet available for this release.
 
-The Firefox Android version is **not yet tested**, and there is no validated Android APK. Standard Chrome Android does not support regular desktop extensions.
+### 2B. Chrome, Edge or Brave — desktop
+
+1. Open `chrome://extensions`, `edge://extensions` or `brave://extensions`.
+2. Turn on **Developer mode**.
+3. Select **Load unpacked**.
+4. Choose the **extracted folder** containing `manifest.json`.
+5. Open **[Instagram](https://www.instagram.com/)**, refresh the page and launch **◎ Radar Seguidores**.
+
+Keep the extracted folder in place while using the extension. Users of the prepared packages do not need to install Python, Node.js or additional development software.
+
+### 3. Your first scan
+
+1. Sign in to Instagram normally in the browser running the extension.
+2. Click **Analisar agora** and wait until the followers and following lists have fully loaded.
+3. Browse **Não me seguem**, **Pararam de seguir**, or **Me seguem, não sigo**.
+4. For individual unfollows, click **Deixar de seguir** and **confirm** each action.
+5. Scan again on a later date to identify accounts that stopped following you **since the previous scan**.
+
+> [!WARNING]
+> Your first scan **cannot recover people who unfollowed before you started tracking**. Instagram may throttle data requests, particularly for large accounts. Respect the application's suggested scan interval and avoid repeated bulk activity.
 
 ## Compatibility
 
-| Browser | Desktop | Android |
-|---|---|---|
-| Firefox | Previous version validated; v1.1 needs retesting | Untested; signing/compatibility required |
-| Chrome | Build available, not validated with real account | Standard extension unsupported |
-| Edge | Build available, not validated with real account | Untested |
-| Brave | Build available, not validated with real account | Regular mobile extension installation unavailable |
+| Platform | Status |
+|---|---|
+| Firefox desktop | Earlier prototype tested with a real account; updated beta build needs retesting. |
+| Chrome / Edge / Brave desktop | Built and available for testing; live validation pending. |
+| Firefox Android | Under consideration; compatible signed extension and mobile testing needed. |
+| Chrome / Brave Android | Cannot conventionally install these desktop extension packages. |
+| Android APK | Not available; the earlier prototype was not validated for distribution. |
 
-## Privacy and safety
+## Privacy first
 
-- Scans and history are stored **locally in the extension**. No project-operated data collection server or advertising.
-- Uses your **existing Instagram browser session**. Never share your passwords, cookies or authentication tokens in issues.
-- Calls **unofficial internal Instagram interfaces** which may change, stop working, be rate-limited or trigger account restrictions.
-- Does not bulk-unfollow. Every individual unfollow requires confirmation. Verify the account before taking action.
-- Incomplete scans are not accepted as full scans; safeguards reduce, but cannot eliminate, false positives.
-- Public source code does **not** mean a security certification or endorsement by Meta.
+- **No separate password screen:** uses your existing session on `instagram.com`.
+- **No project-run data collection server:** scans and history are stored locally, separately for each account.
+- **No ads or trackers added by this project.**
+- **Scoped permissions:** `instagram.com` access and extension-local storage only.
+- **Individual control:** every unfollow requires confirmation; no mass-unfollow feature.
 
-Read the [privacy policy (Portuguese)](docs/PRIVACIDADE.md), [security notes (Portuguese)](docs/SEGURANCA.md) and [release checklist (Portuguese)](docs/PUBLICACAO.md).
+> [!CAUTION]
+> Radar Seguidores uses **unofficial internal Instagram interfaces**. They may change, fail or trigger account rate limits/restrictions. This project is not affiliated with, sponsored or endorsed by Meta or Instagram. Open source does not mean risk-free or officially approved.
 
-## Build and test
+[Privacy policy (Portuguese)](docs/PRIVACIDADE.md) · [Security (Portuguese)](docs/SEGURANCA.md) · [Release checklist (Portuguese)](docs/PUBLICACAO.md)
 
-Requires **Node.js 18+**, with no npm runtime dependencies:
+## Frequently asked questions
+
+<details><summary><b>How can I see who unfollowed me?</b></summary><br>Complete a scan, keep its locally stored snapshot and scan again later. The app can only confirm changes between saved observations.</details>
+
+<details><summary><b>Can I see accounts that don't follow me now?</b></summary><br>Yes. The <b>Não me seguem</b> tab compares your current following list with your current followers list; it cannot tell when or why somebody unfollowed you.</details>
+
+<details><summary><b>Does the Unfollow button change my Instagram account?</b></summary><br>Yes. After you confirm, it requests the action from Instagram. Check the selected profile before confirming. If a request fails, verify the final state on Instagram.</details>
+
+<details><summary><b>Why is scanning slow or why did Instagram return HTTP 429?</b></summary><br>Instagram may throttle requests. Don't retry continuously; wait before trying again. A partial scan is not a reliable final result.</details>
+
+<details><summary><b>Are my lists uploaded anywhere?</b></summary><br>The project does not run a collection server. Necessary data requests go to Instagram, while results are stored locally in your browser until you or the browser delete them.</details>
+
+<details><summary><b>Does it work on Android?</b></summary><br>The current build targets desktop browsers. Firefox Android compatibility remains under evaluation and no validated APK is available.</details>
+
+<details><summary><b>How can I delete my history?</b></summary><br>Open the Radar Seguidores panel and choose <b>Apagar histórico</b> to delete stored scans for the current Instagram account. Uninstalling the extension is another option.</details>
+
+## Development
+
+Radar Seguidores uses **JavaScript**, Manifest V3 WebExtensions and local browser storage, without a project backend or runtime dependencies.
 
 ```bash
+git clone https://github.com/pecanela/radar-seguidores.git
+cd radar-seguidores
 npm test
 npm run build
 ```
 
-The generated folders are `dist/firefox/` and `dist/chromium/` (gitignored). CI runs tests and builds unsigned artifacts on [GitHub Actions](https://github.com/pecanela/radar-seguidores/actions).
+Node.js 18+ is required for development. Built packages are placed in `dist/firefox/` and `dist/chromium/`. [GitHub Actions](https://github.com/pecanela/radar-seguidores/actions/workflows/ci.yml) runs tests and builds automatically.
+
+## Roadmap
+
+- [x] Follower/following comparison
+- [x] Local history and lost-follower detection between scans
+- [x] Firefox and Chromium packages
+- [x] Automated tests and GitHub Actions build
+- [ ] Live validation of the current release on Firefox, Chrome, Edge and Brave
+- [ ] Browser store signing/publication
+- [ ] Firefox Android testing
+- [ ] English UI localization
 
 ## Contributing
 
-Bug fixes, localized UI translations, browser compatibility tests and pull requests are welcome. Please do **not** share any real usernames, cookies or other personal details in issues. See [CONTRIBUTING.md](CONTRIBUTING.md) (Portuguese) and [Issues](https://github.com/pecanela/radar-seguidores/issues).
+Bug fixes, accessibility improvements, translation contributions and tests on additional browsers are welcome. Open an [issue](https://github.com/pecanela/radar-seguidores/issues) or submit a pull request. Never attach cookies, tokens, complete follower lists or other personal information.
 
-## License
+See [CONTRIBUTING.md](CONTRIBUTING.md) · [Changelog](CHANGELOG.md) · [Releases](https://github.com/pecanela/radar-seguidores/releases)
 
-Distributed under the [MIT License](LICENSE).
+---
 
-**Independent project. Not affiliated with, sponsored by or endorsed by Meta or Instagram.** Use at your own risk and observe the policies applicable to your Instagram account.
+<p align="center">Licensed under <a href="LICENSE">MIT</a> · Developed and maintained at <a href="https://github.com/pecanela/radar-seguidores">pecanela/radar-seguidores</a>.</p>
+<p align="center"><strong>More clarity over your connections — free, open-source and ad-free.</strong></p>

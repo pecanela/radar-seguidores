@@ -1,0 +1,31 @@
+name: CI e pacotes de teste
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Testes
+        run: npm test
+      - name: Montar extensoes
+        run: npm run build
+      - name: Publicar Firefox
+        uses: actions/upload-artifact@v4
+        with:
+          name: radar-seguidores-firefox-unsigned
+          path: dist/firefox/
+      - name: Publicar Chromium
+        uses: actions/upload-artifact@v4
+        with:
+          name: radar-seguidores-chromium
+          path: dist/chromium/
